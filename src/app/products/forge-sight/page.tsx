@@ -122,13 +122,15 @@ export default function ForgeSightPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button asChild size="lg">
-                <Link href={"/products" as any}>
-                  Start Free Trial
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/products">
+                  <>
+                    Start Free Trial
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   View API Docs
                 </Link>
               </Button>
@@ -287,7 +289,7 @@ export default function ForgeSightPage() {
                     variant={tier.popular ? 'default' : 'secondary'} 
                     className="w-full"
                   >
-                    <Link href={`/?plan=${tier.name.toLowerCase()}` as any}>
+                    <Link href={`/?plan=${tier.name.toLowerCase()}`}>
                       {tier.price === 'Custom' ? 'Contact Sales' : 'Start Free Trial'}
                     </Link>
                   </Button>
@@ -310,13 +312,15 @@ export default function ForgeSightPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  Start 14-Day Free Trial
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    Start 14-Day Free Trial
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   Schedule Demo
                 </Link>
               </Button>

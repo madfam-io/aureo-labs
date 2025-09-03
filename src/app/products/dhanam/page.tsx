@@ -94,13 +94,15 @@ export default function DhanamPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button asChild size="lg">
-                <Link href={"/products" as any}>
-                  Start Free Trial
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/products">
+                  <>
+                    Start Free Trial
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   Download App
                 </Link>
               </Button>
@@ -221,9 +223,11 @@ export default function DhanamPage() {
 
               <div className="mt-8">
                 <Button asChild size="lg">
-                  <Link href={"/products" as any}>
-                    See How It Works
-                    <ArrowRight className="h-4 w-4" />
+                  <Link href="/products">
+                    <>
+                      See How It Works
+                      <ArrowRight className="h-4 w-4" />
+                    </>
                   </Link>
                 </Button>
               </div>
@@ -248,13 +252,13 @@ export default function DhanamPage() {
             {testimonials.map((testimonial, index) => (
               <GlassPanel key={index} className="p-6">
                 <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
                     <svg key={i} className="h-5 w-5 text-gold-500 fill-current" viewBox="0 0 20 20">
                       <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                     </svg>
                   ))}
                 </div>
-                <p className="text-neutral-300 mb-6 italic">"{testimonial.quote}"</p>
+                <p className="text-neutral-300 mb-6 italic">&quot;{testimonial.quote}&quot;</p>
                 <div>
                   <p className="font-semibold text-neutral-100">{testimonial.author}</p>
                   <p className="text-sm text-neutral-500">{testimonial.role}</p>
@@ -389,7 +393,7 @@ export default function DhanamPage() {
                     variant={tier.popular ? 'default' : 'secondary'} 
                     className="w-full"
                   >
-                    <Link href={`/?plan=${tier.name.toLowerCase()}` as any}>
+                    <Link href={`/?plan=${tier.name.toLowerCase()}`}>
                       {tier.price === 'Free' ? 'Get Started Free' : 'Start 7-Day Trial'}
                     </Link>
                   </Button>
@@ -409,17 +413,19 @@ export default function DhanamPage() {
             </h2>
             <p className="text-lg text-neutral-400 mb-8 max-w-2xl mx-auto">
               Join over 4 million people who are taking control of their finances 
-              with Dhanam's AI-powered platform.
+              with Dhanam&apos;s AI-powered platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  Start Free Today
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    Start Free Today
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   Watch Demo
                 </Link>
               </Button>

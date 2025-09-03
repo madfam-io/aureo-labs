@@ -130,13 +130,15 @@ export default function PennyPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button asChild size="lg">
-              <Link href={"/products/penny" as any}>
-                Try Interactive Demo
-                <ArrowRight className="h-4 w-4" />
+              <Link href="/products/penny">
+                <>
+                  Try Interactive Demo
+                  <ArrowRight className="h-4 w-4" />
+                </>
               </Link>
             </Button>
             <Button asChild variant="secondary" size="lg">
-              <Link href={"/developers" as any}>
+              <Link href="/developers">
                 View API Docs
               </Link>
             </Button>
@@ -151,7 +153,7 @@ export default function PennyPage() {
                 </div>
                 <div>
                   <p className="text-neutral-300 mb-2">
-                    "What's our current customer satisfaction rate?"
+                    &quot;What&apos;s our current customer satisfaction rate?&quot;
                   </p>
                   <p className="text-gold-300 text-sm">
                     → Based on the latest data, your CSAT is 94.2%, up 3.1% from last quarter...
@@ -226,10 +228,10 @@ export default function PennyPage() {
             {pricingTiers.map((tier) => (
               <Card 
                 key={tier.name} 
-                variant={tier.popular ? 'gold' : 'default'}
-                className={`relative ${tier.popular ? 'scale-105' : ''}`}
+                variant={Boolean(tier.popular) ? 'gold' : 'default'}
+                className={Boolean(tier.popular) ? 'relative scale-105' : 'relative'}
               >
-                {tier.popular && (
+                {Boolean(tier.popular) && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                     <div className="bg-gradient-to-r from-gold-300 to-gold-500 text-neutral-900 px-4 py-1 rounded-full text-sm font-medium">
                       Most Popular
@@ -258,10 +260,10 @@ export default function PennyPage() {
                   
                   <Button 
                     asChild 
-                    variant={tier.popular ? 'default' : 'secondary'} 
+                    variant={Boolean(tier.popular) ? 'default' : 'secondary'} 
                     className="w-full mt-6"
                   >
-                    <Link href={`/?plan=${tier.name.toLowerCase()}` as any}>
+                    <Link href={`/?plan=${tier.name.toLowerCase()}`}>
                       {tier.price === 'Custom' ? 'Contact Sales' : 'Start Free Trial'}
                     </Link>
                   </Button>
@@ -283,13 +285,15 @@ export default function PennyPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  Request Demo
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    Request Demo
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   Developer Docs
                 </Link>
               </Button>

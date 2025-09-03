@@ -79,13 +79,15 @@ export default function CotizaPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button asChild size="lg">
-                <Link href={"/products" as any}>
-                  Try Free for 30 Days
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/products">
+                  <>
+                    Try Free for 30 Days
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   Watch Demo
                 </Link>
               </Button>
@@ -166,9 +168,11 @@ export default function CotizaPage() {
 
               <div className="mt-8">
                 <Button asChild size="lg">
-                  <Link href={"/products" as any}>
-                    Start Creating Quotations
-                    <ArrowRight className="h-4 w-4" />
+                  <Link href="/products">
+                    <>
+                      Start Creating Quotations
+                      <ArrowRight className="h-4 w-4" />
+                    </>
                   </Link>
                 </Button>
               </div>
@@ -318,7 +322,7 @@ export default function CotizaPage() {
                     variant={tier.popular ? 'default' : 'secondary'} 
                     className="w-full"
                   >
-                    <Link href={`/?plan=${tier.name.toLowerCase()}` as any}>
+                    <Link href={`/?plan=${tier.name.toLowerCase()}`}>
                       {tier.price === 'Custom' ? 'Contact Sales' : 'Start Free Trial'}
                     </Link>
                   </Button>
@@ -338,17 +342,19 @@ export default function CotizaPage() {
             </h2>
             <p className="text-lg text-neutral-400 mb-8 max-w-2xl mx-auto">
               Join thousands of businesses that have transformed their sales process 
-              with Cotiza Studio's intelligent quotation system.
+              with Cotiza Studio&apos;s intelligent quotation system.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  Start 30-Day Free Trial
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    Start 30-Day Free Trial
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   Book a Demo
                 </Link>
               </Button>

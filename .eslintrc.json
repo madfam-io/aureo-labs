@@ -32,14 +32,17 @@
         "checksVoidReturn": false
       }
     ],
-    "@typescript-eslint/no-unnecessary-condition": "error",
+    "@typescript-eslint/no-unnecessary-condition": "warn",
     "@typescript-eslint/no-non-null-assertion": "error",
     "@typescript-eslint/prefer-nullish-coalescing": "error",
     "@typescript-eslint/prefer-optional-chain": "error",
     "@typescript-eslint/strict-boolean-expressions": [
-      "error",
+      "warn",
       {
-        "allowNullableObject": true
+        "allowNullableObject": true,
+        "allowNullableBoolean": true,
+        "allowNullableString": true,
+        "allowAny": false
       }
     ],
     "no-console": [

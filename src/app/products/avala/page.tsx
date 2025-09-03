@@ -14,7 +14,7 @@ const features = [
   {
     icon: Brain,
     title: 'Adaptive Learning',
-    description: 'AI-powered content delivery that adapts to each learner\'s pace, style, and knowledge level.',
+    description: 'AI-powered content delivery that adapts to each learner&apos;s pace, style, and knowledge level.',
   },
   {
     icon: Video,
@@ -106,13 +106,15 @@ export default function AvalaPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button asChild size="lg">
-                <Link href={"/products" as any}>
-                  Request Demo
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/products">
+                  <>
+                    Request Demo
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   Explore Courses
                 </Link>
               </Button>
@@ -170,7 +172,7 @@ export default function AvalaPage() {
               Built for Every Learning Need
             </h2>
             <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
-              From onboarding to leadership development, AVALA adapts to your organization's unique requirements
+              From onboarding to leadership development, AVALA adapts to your organization&apos;s unique requirements
             </p>
           </div>
 
@@ -200,7 +202,7 @@ export default function AvalaPage() {
                 <span className="text-gold-500"> That Work</span>
               </h2>
               <p className="text-lg text-neutral-400 mb-8">
-                Our AI analyzes each learner's progress, preferences, and goals to create 
+                Our AI analyzes each learner&apos;s progress, preferences, and goals to create 
                 optimal learning journeys that maximize engagement and retention.
               </p>
               
@@ -222,9 +224,11 @@ export default function AvalaPage() {
 
               <div className="mt-8">
                 <Button asChild size="lg">
-                  <Link href={"/products" as any}>
-                    See Platform Demo
-                    <ArrowRight className="h-4 w-4" />
+                  <Link href="/products">
+                    <>
+                      See Platform Demo
+                      <ArrowRight className="h-4 w-4" />
+                    </>
                   </Link>
                 </Button>
               </div>
@@ -264,7 +268,7 @@ export default function AvalaPage() {
 
                 <div className="mt-4 p-3 bg-yellow-500 bg-opacity-10 rounded-lg">
                   <p className="text-xs text-neutral-300">
-                    <span className="font-semibold">Next up:</span> Complete "API Integration" module to unlock advanced features
+                    <span className="font-semibold">Next up:</span> Complete &quot;API Integration&quot; module to unlock advanced features
                   </p>
                 </div>
               </GlassPanel>
@@ -402,7 +406,7 @@ export default function AvalaPage() {
                     variant={tier.popular ? 'default' : 'secondary'} 
                     className="w-full"
                   >
-                    <Link href={`/?plan=${tier.name.toLowerCase()}` as any}>
+                    <Link href={`/?plan=${tier.name.toLowerCase()}`}>
                       {tier.price === 'Custom' ? 'Contact Sales' : 'Start Free Trial'}
                     </Link>
                   </Button>
@@ -426,13 +430,15 @@ export default function AvalaPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  Schedule Demo
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    Schedule Demo
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   Download Whitepaper
                 </Link>
               </Button>

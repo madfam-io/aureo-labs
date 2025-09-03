@@ -285,28 +285,28 @@ export default function ContactPage() {
                 </h3>
                 <div className="space-y-3">
                   <Link 
-                    href={"/developers" as any}
+                    href="/developers"
                     className="flex items-center gap-2 text-neutral-300 hover:text-gold-500 transition-colors"
                   >
                     <ArrowRight className="h-4 w-4" />
                     Developer Documentation
                   </Link>
                   <Link 
-                    href={"/products" as any}
+                    href="/products"
                     className="flex items-center gap-2 text-neutral-300 hover:text-gold-500 transition-colors"
                   >
                     <ArrowRight className="h-4 w-4" />
                     Product Overview
                   </Link>
                   <Link 
-                    href={"/" as any}
+                    href="/"
                     className="flex items-center gap-2 text-neutral-300 hover:text-gold-500 transition-colors"
                   >
                     <ArrowRight className="h-4 w-4" />
                     Schedule Demo
                   </Link>
                   <Link 
-                    href={"/" as any}
+                    href="/"
                     className="flex items-center gap-2 text-neutral-300 hover:text-gold-500 transition-colors"
                   >
                     <ArrowRight className="h-4 w-4" />
@@ -324,9 +324,11 @@ export default function ContactPage() {
                   Our team of experts is ready to help you transform your business.
                 </p>
                 <Button asChild variant="secondary" className="w-full">
-                  <Link href={"/" as any}>
-                    Talk to Enterprise Sales
-                    <Briefcase className="h-4 w-4" />
+                  <Link href="/">
+                    <>
+                      Talk to Enterprise Sales
+                      <Briefcase className="h-4 w-4" />
+                    </>
                   </Link>
                 </Button>
               </GlassPanel>
@@ -386,13 +388,15 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  Get Started Today
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    Get Started Today
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/products" as any}>
+                <Link href="/products">
                   Explore Products
                 </Link>
               </Button>

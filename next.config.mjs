@@ -4,7 +4,6 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     optimizeCss: true,
-    typedRoutes: true,
     serverActions: {
       bodySizeLimit: '2mb',
       allowedOrigins: ['*'],

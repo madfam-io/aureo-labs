@@ -115,7 +115,7 @@ export function Footer() {
                 {footerLinks.products.map((item) => (
                   <li key={item.name}>
                     <Link
-                      href={item.href as any}
+                      href={item.href}
                       className="text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
                     >
                       {item.name}
@@ -131,7 +131,7 @@ export function Footer() {
                 {footerLinks.developers.map((item) => (
                   <li key={item.name}>
                     <Link
-                      href={item.href as any}
+                      href={item.href}
                       className="text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
                     >
                       {item.name}
@@ -147,7 +147,7 @@ export function Footer() {
                 {footerLinks.company.map((item) => (
                   <li key={item.name}>
                     <Link
-                      href={item.href as any}
+                      href={item.href}
                       className="text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
                     >
                       {item.name}
@@ -163,7 +163,7 @@ export function Footer() {
                 {footerLinks.legal.map((item) => (
                   <li key={item.name}>
                     <Link
-                      href={item.href as any}
+                      href={item.href}
                       className="text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
                     >
                       {item.name}
@@ -184,15 +184,15 @@ export function Footer() {
             <div className="mt-4 flex items-center gap-4 text-xs text-neutral-500 md:mt-0">
               <span>Part of the MADFAM ecosystem</span>
               <span>•</span>
-              <Link href={"/" as any} className="hover:text-neutral-400 transition-colors">
+              <Link href="/" className="hover:text-neutral-400 transition-colors">
                 SOC 2 Type II
               </Link>
               <span>•</span>
-              <Link href={"/" as any} className="hover:text-neutral-400 transition-colors">
+              <Link href="/" className="hover:text-neutral-400 transition-colors">
                 ISO 27001
               </Link>
               <span>•</span>
-              <Link href={"/" as any} className="hover:text-neutral-400 transition-colors">
+              <Link href="/" className="hover:text-neutral-400 transition-colors">
                 GDPR
               </Link>
             </div>

@@ -160,15 +160,19 @@ export default function DevelopersPage() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
-              <Link href={"/developers" as any}>
-                Get Started
-                <ArrowRight className="h-4 w-4" />
+              <Link href="/developers">
+                <>
+                  Get Started
+                  <ArrowRight className="h-4 w-4" />
+                </>
               </Link>
             </Button>
             <Button asChild variant="secondary" size="lg">
-              <Link href={"/developers" as any}>
-                Try Sandbox
-                <Play className="h-4 w-4" />
+              <Link href="/developers">
+                <>
+                  Try Sandbox
+                  <Play className="h-4 w-4" />
+                </>
               </Link>
             </Button>
           </div>
@@ -238,9 +242,11 @@ export default function DevelopersPage() {
                     <code className="text-sm text-green-400 font-mono">{sdk.install}</code>
                   </div>
                   <Button asChild variant="outline" className="w-full">
-                    <Link href={sdk.docs as any}>
-                      View Documentation
-                      <ArrowRight className="h-4 w-4" />
+                    <Link href={sdk.docs}>
+                      <>
+                        View Documentation
+                        <ArrowRight className="h-4 w-4" />
+                      </>
                     </Link>
                   </Button>
                 </CardContent>
@@ -313,9 +319,11 @@ export default function DevelopersPage() {
                   <CardContent>
                     <CardDescription className="mb-4">{resource.description}</CardDescription>
                     <Button asChild variant="ghost" size="sm" className="group">
-                      <Link href={resource.href as any} {...(resource.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
-                        {resource.external ? 'Download' : 'View'}
-                        <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                      <Link href={resource.href} {...(resource.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                        <>
+                          {resource.external ? 'Download' : 'View'}
+                          <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                        </>
                       </Link>
                     </Button>
                   </CardContent>
@@ -336,13 +344,15 @@ export default function DevelopersPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  Get API Key
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    Get API Key
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/" as any}>
+                <Link href="/">
                   Join Discord
                 </Link>
               </Button>

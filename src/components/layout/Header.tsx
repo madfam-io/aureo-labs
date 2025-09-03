@@ -117,7 +117,7 @@ export function Header() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <Link
-                href={item.href as any}
+                href={item.href}
                 className={cn(
                   'inline-flex items-center gap-1 text-sm font-medium transition-colors',
                   pathname.startsWith(item.href)
@@ -143,7 +143,7 @@ export function Header() {
                     {item.dropdown.map((subItem) => (
                       <Link
                         key={subItem.name}
-                        href={subItem.href as any}
+                        href={subItem.href}
                         className="block px-4 py-3 text-sm text-neutral-300 transition-colors hover:bg-yellow-500 bg-opacity-10 hover:text-neutral-100"
                       >
                         {subItem.name}
@@ -158,12 +158,12 @@ export function Header() {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-4">
           <Link
-            href={"/" as any}
+            href="/"
             className="text-sm font-medium text-neutral-300 transition-colors hover:text-neutral-100"
           >
             Sign In
           </Link>
-          <Link href={"/" as any} className="btn-gold text-sm">
+          <Link href="/" className="btn-gold text-sm">
             Request Demo
           </Link>
         </div>
@@ -197,17 +197,17 @@ export function Header() {
                   {navigation.map((item) => (
                     <div key={item.name}>
                       <Link
-                        href={item.href as any}
+                        href={item.href}
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-neutral-100 hover:bg-neutral-900"
                       >
                         {item.name}
                       </Link>
-                      {item.dropdown && (
+                      {Boolean(item.dropdown) && (
                         <div className="ml-4 mt-2 space-y-1">
                           {item.dropdown.map((subItem) => (
                             <Link
                               key={subItem.name}
-                              href={subItem.href as any}
+                              href={subItem.href}
                               className="block rounded-lg px-3 py-2 text-sm text-neutral-400 hover:bg-neutral-900"
                             >
                               {subItem.name}
@@ -220,12 +220,12 @@ export function Header() {
                 </div>
                 <div className="py-6">
                   <Link
-                    href={"/" as any}
+                    href="/"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-neutral-100 hover:bg-neutral-900"
                   >
                     Sign In
                   </Link>
-                  <Link href={"/" as any} className="btn-gold mt-4 w-full text-center">
+                  <Link href="/" className="btn-gold mt-4 w-full text-center">
                     Request Demo
                   </Link>
                 </div>

@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 
 export interface SEOConfig {
   title: string
@@ -19,7 +19,7 @@ const defaultSEO = {
   defaultTitle: 'Aureo Labs | Where AI Innovation Meets Enterprise Reality',
   titleTemplate: '%s | Aureo Labs',
   defaultDescription: 'Transform your enterprise with AI-powered platforms built for real-world impact. Explore PENNY, Forge Sight, Cotiza, and more intelligent solutions.',
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.aureolabs.dev',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.aureolabs.dev',
   defaultImage: '/images/og/default.jpg',
   twitterHandle: '@aureolabs',
   linkedinHandle: 'aureolabs',
@@ -45,8 +45,8 @@ export function generateMetadata(config: SEOConfig): Metadata {
     ? title 
     : `${title} | ${defaultSEO.siteName}`
 
-  const fullUrl = url ? `${defaultSEO.siteUrl}${url}` : defaultSEO.siteUrl
-  const fullImage = image ? `${defaultSEO.siteUrl}${image}` : `${defaultSEO.siteUrl}${defaultSEO.defaultImage}`
+  const fullUrl = url != null && url !== '' ? `${defaultSEO.siteUrl}${url}` : defaultSEO.siteUrl
+  const fullImage = image != null && image !== '' ? `${defaultSEO.siteUrl}${image}` : `${defaultSEO.siteUrl}${defaultSEO.defaultImage}`
 
   const baseKeywords = [
     'AI platforms',
@@ -76,7 +76,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
       canonical: fullUrl,
     },
     openGraph: {
-      type: type as any,
+      type: type as 'website' | 'article' | 'profile',
       title: fullTitle,
       description,
       url: fullUrl,
@@ -128,8 +128,8 @@ export function generateStructuredData(config: SEOConfig) {
   const { title, description, image, url, type, publishedTime, authors } = config
   
   const baseUrl = defaultSEO.siteUrl
-  const fullUrl = url ? `${baseUrl}${url}` : baseUrl
-  const fullImage = image ? `${baseUrl}${image}` : `${baseUrl}${defaultSEO.defaultImage}`
+  const fullUrl = url != null && url !== '' ? `${baseUrl}${url}` : baseUrl
+  const fullImage = image != null && image !== '' ? `${baseUrl}${image}` : `${baseUrl}${defaultSEO.defaultImage}`
 
   // Organization Schema
   const organization = {
@@ -186,10 +186,10 @@ export function generateStructuredData(config: SEOConfig) {
     },
   }
 
-  let schemas: any[] = [organization, website]
+  const schemas: Record<string, unknown>[] = [organization, website]
 
   // Add specific schemas based on page type
-  if (type === 'article' && publishedTime && authors) {
+  if (type === 'article' && publishedTime != null && publishedTime !== '' && authors != null) {
     const article = {
       '@context': 'https://schema.org',
       '@type': 'Article',

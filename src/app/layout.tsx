@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Aureo Labs | Where AI Innovation Meets Enterprise Reality',
   description: 'Aureo Labs builds AI-powered platforms that transform how enterprises operate. Explore our suite of intelligent solutions including PENNY, Forge Sight, and more.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
   openGraph: {
     title: 'Aureo Labs | AI Innovation Laboratory',
     description: 'Transform your enterprise with AI-powered platforms built for real-world impact.',

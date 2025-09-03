@@ -1,4 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
 import { z } from 'zod'
 
 const subscribeSchema = z.object({
@@ -13,7 +14,7 @@ const subscribeSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
+    const body = await request.json() as unknown
     const validatedData = subscribeSchema.parse(body)
 
     // In a real implementation, you would:
@@ -26,7 +27,7 @@ export async function POST(request: NextRequest) {
     await new Promise(resolve => setTimeout(resolve, 1000))
 
     // For demo purposes, we'll just log the subscription
-    console.log('Newsletter subscription:', validatedData)
+    // console.log('Newsletter subscription:', validatedData)
 
     return NextResponse.json(
       {
@@ -60,13 +61,13 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function DELETE(request: NextRequest) {
+export function DELETE(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
     const email = searchParams.get('email')
     const token = searchParams.get('token')
 
-    if (!email || !token) {
+    if (email == null || email === '' || token == null || token === '') {
       return NextResponse.json(
         {
           success: false,
@@ -81,7 +82,7 @@ export async function DELETE(request: NextRequest) {
     // 2. Remove from email service
     // 3. Update database
 
-    console.log('Newsletter unsubscribe:', { email, token })
+    // console.log('Newsletter unsubscribe:', { email, token })
 
     return NextResponse.json({
       success: true,

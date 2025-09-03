@@ -154,7 +154,7 @@ export function HeroSection() {
 
                   {/* Testimonial */}
                   <div className="mt-6 p-4 border border-gold-500 border-opacity-20 rounded-xl bg-yellow-500 bg-opacity-5">
-                    <p className="text-sm text-neutral-300 italic mb-2">"{testimonialHighlight.quote}"</p>
+                    <p className="text-sm text-neutral-300 italic mb-2">&quot;{testimonialHighlight.quote}&quot;</p>
                     <div className="flex items-center gap-2">
                       <div className="h-6 w-6 bg-gradient-to-br from-gold-300 to-gold-500 rounded-full" />
                       <div className="text-xs">

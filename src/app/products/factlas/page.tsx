@@ -57,7 +57,7 @@ const industries = [
 const capabilities = [
   { metric: '10TB+', label: 'Geographic Data', desc: 'Processed monthly' },
   { metric: '250M', label: 'Location Points', desc: 'Analyzed in real-time' },
-  { metric: '&lt;100ms', label: 'Query Response', desc: 'Average latency' },
+  { metric: '<100ms', label: 'Query Response', desc: 'Average latency' },
   { metric: '99.9%', label: 'Uptime SLA', desc: 'Guaranteed availability' },
 ]
 
@@ -84,13 +84,15 @@ export default function FactlasPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button asChild size="lg">
-                <Link href={"/products" as any}>
-                  Explore Platform
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/products">
+                  <>
+                    Explore Platform
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   View Live Demo
                 </Link>
               </Button>
@@ -237,9 +239,11 @@ export default function FactlasPage() {
 
               <div className="mt-8">
                 <Button asChild size="lg">
-                  <Link href={"/products" as any}>
-                    See Use Cases
-                    <ArrowRight className="h-4 w-4" />
+                  <Link href="/products">
+                    <>
+                      See Use Cases
+                      <ArrowRight className="h-4 w-4" />
+                    </>
                   </Link>
                 </Button>
               </div>
@@ -403,7 +407,7 @@ export default function FactlasPage() {
                     variant={tier.popular ? 'default' : 'secondary'} 
                     className="w-full"
                   >
-                    <Link href={`/?plan=${tier.name.toLowerCase()}` as any}>
+                    <Link href={`/?plan=${tier.name.toLowerCase()}`}>
                       {tier.price === 'Custom' ? 'Contact Sales' : 'Start Free Trial'}
                     </Link>
                   </Button>
@@ -427,13 +431,15 @@ export default function FactlasPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  Request Demo
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    Request Demo
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/developers" as any}>
+                <Link href="/developers">
                   Explore Platform
                 </Link>
               </Button>

@@ -41,12 +41,12 @@ export class FocusManager {
     const handleTabKey = (e: KeyboardEvent) => {
       if (e.key === 'Tab') {
         if (e.shiftKey) {
-          if (document.activeElement === firstFocusable) {
+          if (firstFocusable && document.activeElement === firstFocusable) {
             lastFocusable?.focus()
             e.preventDefault()
           }
         } else {
-          if (document.activeElement === lastFocusable) {
+          if (lastFocusable && document.activeElement === lastFocusable) {
             firstFocusable?.focus()
             e.preventDefault()
           }
@@ -157,7 +157,7 @@ export const KeyboardNavigation = {
       this.KEYS.ARROW_DOWN,
       this.KEYS.ARROW_LEFT,
       this.KEYS.ARROW_RIGHT,
-    ].includes(key as any)
+    ].includes(key as typeof this.KEYS.ARROW_UP | typeof this.KEYS.ARROW_DOWN | typeof this.KEYS.ARROW_LEFT | typeof this.KEYS.ARROW_RIGHT)
   },
 
   handleArrowNavigation(

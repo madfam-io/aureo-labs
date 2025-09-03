@@ -115,7 +115,7 @@ export default function HomePage() {
                     <CheckCircle className="h-4 w-4 text-green-500" />
                     <span>{product.stats}</span>
                   </div>
-                  <Link href={product.href as any} className="absolute inset-0" aria-label={`Learn more about ${product.name}`} />
+                  <Link href={product.href} className="absolute inset-0" aria-label={`Learn more about ${product.name}`} />
                 </GlassPanel>
               ))}
             </div>
@@ -123,8 +123,10 @@ export default function HomePage() {
             <div className="text-center mt-12">
               <Button asChild size="lg">
                 <Link href="/products">
-                  View All Products
-                  <ArrowRight className="h-4 w-4" />
+                  <>
+                    View All Products
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
             </div>
@@ -143,9 +145,11 @@ export default function HomePage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button asChild size="lg">
-                    <Link href={"/" as any}>
-                      Request Demo
-                      <ArrowRight className="h-4 w-4" />
+                    <Link href="/">
+                      <>
+                        Request Demo
+                        <ArrowRight className="h-4 w-4" />
+                      </>
                     </Link>
                   </Button>
                   <Button asChild variant="secondary" size="lg">

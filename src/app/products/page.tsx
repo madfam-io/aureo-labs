@@ -100,7 +100,7 @@ export default function ProductsPage() {
           {products.map((product) => (
             <Card
               key={product.name}
-              variant={product.color as any}
+              variant={product.color === 'electric' ? 'default' : product.color as 'default' | 'gold'}
               interactive
               className="h-full group"
             >
@@ -166,14 +166,16 @@ export default function ProductsPage() {
 
               <div className="flex items-center justify-between p-6 pt-0">
                 <Button asChild variant="link" size="sm">
-                  <Link href={`${product.href}/demo` as any}>
+                  <Link href={`${product.href}/demo`}>
                     Try Demo
                   </Link>
                 </Button>
                 <Button asChild variant="ghost" size="sm">
-                  <Link href={product.href as any}>
-                    Learn More
-                    <ArrowRight className="h-3 w-3" />
+                  <Link href={product.href}>
+                    <>
+                      Learn More
+                      <ArrowRight className="h-3 w-3" />
+                    </>
                   </Link>
                 </Button>
               </div>
@@ -193,15 +195,19 @@ export default function ProductsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  Request Enterprise Demo
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    Request Enterprise Demo
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
                 <Link href="/developers">
-                  View Documentation
-                  <ExternalLink className="h-4 w-4" />
+                  <>
+                    View Documentation
+                    <ExternalLink className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
             </div>

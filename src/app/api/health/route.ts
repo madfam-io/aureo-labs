@@ -1,16 +1,16 @@
 import { NextResponse } from 'next/server'
 
-export async function GET() {
+export function GET() {
   const healthData = {
     status: 'ok',
     timestamp: new Date().toISOString(),
-    version: process.env.npm_package_version || '1.0.0',
+    version: process.env.npm_package_version ?? '1.0.0',
     environment: process.env.NODE_ENV,
     uptime: process.uptime(),
     services: {
-      database: await checkDatabaseHealth(),
-      redis: await checkRedisHealth(),
-      apis: await checkAPIHealth(),
+      database: checkDatabaseHealth(),
+      redis: checkRedisHealth(),
+      apis: checkAPIHealth(),
     }
   }
 
@@ -20,7 +20,7 @@ export async function GET() {
   return NextResponse.json(healthData, { status: statusCode })
 }
 
-async function checkDatabaseHealth() {
+function checkDatabaseHealth() {
   try {
     // In a real implementation, you would check database connectivity
     // For now, we'll simulate a health check
@@ -29,7 +29,7 @@ async function checkDatabaseHealth() {
       responseTime: Math.random() * 50 + 10, // Simulated response time
       lastChecked: new Date().toISOString()
     }
-  } catch (error) {
+  } catch {
     return {
       status: 'error',
       error: 'Database connection failed',
@@ -38,7 +38,7 @@ async function checkDatabaseHealth() {
   }
 }
 
-async function checkRedisHealth() {
+function checkRedisHealth() {
   try {
     // In a real implementation, you would check Redis connectivity
     // For now, we'll simulate a health check
@@ -47,7 +47,7 @@ async function checkRedisHealth() {
       responseTime: Math.random() * 20 + 5, // Simulated response time
       lastChecked: new Date().toISOString()
     }
-  } catch (error) {
+  } catch {
     return {
       status: 'error',
       error: 'Redis connection failed',
@@ -56,7 +56,7 @@ async function checkRedisHealth() {
   }
 }
 
-async function checkAPIHealth() {
+function checkAPIHealth() {
   try {
     // Check external API dependencies
     // In a real implementation, you would make actual API calls
@@ -74,7 +74,7 @@ async function checkAPIHealth() {
         factlas: { status: 'ok', responseTime: 78 },
       }
     }
-  } catch (error) {
+  } catch {
     return {
       status: 'error',
       error: 'API health check failed',

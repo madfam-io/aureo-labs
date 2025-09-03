@@ -1,7 +1,7 @@
 // Analytics configuration and utilities
 export interface AnalyticsEvent {
   name: string
-  properties?: Record<string, any>
+  properties?: Record<string, unknown>
   userId?: string
   timestamp?: Date
 }
@@ -25,10 +25,10 @@ class Analytics {
   init(userId?: string) {
     if (!this.isEnabled) return
     
-    this.userId = userId || null
+    this.userId = userId ?? null
 
     // Initialize PostHog
-    if (process.env.NEXT_PUBLIC_POSTHOG_KEY) {
+    if (process.env.NEXT_PUBLIC_POSTHOG_KEY != null && process.env.NEXT_PUBLIC_POSTHOG_KEY !== '') {
       this.initPostHog()
     }
 
@@ -39,13 +39,13 @@ class Analytics {
   private initPostHog() {
     // PostHog initialization would go here
     // This is a placeholder for the actual implementation
-    console.log('PostHog initialized')
+    // console.log('PostHog initialized')
   }
 
   private initVercelAnalytics() {
     // Vercel Analytics initialization would go here
     // This is a placeholder for the actual implementation
-    console.log('Vercel Analytics initialized')
+    // console.log('Vercel Analytics initialized')
   }
 
   track(event: AnalyticsEvent) {
@@ -53,8 +53,8 @@ class Analytics {
 
     const eventData = {
       ...event,
-      userId: event.userId || this.userId || undefined,
-      timestamp: event.timestamp || new Date(),
+      userId: event.userId ?? this.userId ?? undefined,
+      timestamp: event.timestamp ?? new Date(),
     }
 
     // Send to PostHog
@@ -69,7 +69,7 @@ class Analytics {
 
     const pageData = {
       ...event,
-      userId: event.userId || this.userId || undefined,
+      userId: event.userId ?? this.userId ?? undefined,
       timestamp: new Date(),
     }
 
@@ -77,7 +77,7 @@ class Analytics {
     this.sendPageView(pageData)
   }
 
-  identify(userId: string, traits?: Record<string, any>) {
+  identify(userId: string, traits?: Record<string, unknown>) {
     if (!this.isEnabled) return
 
     this.userId = userId
@@ -86,24 +86,24 @@ class Analytics {
     this.sendIdentification(userId, traits)
   }
 
-  private sendToPostHog(event: AnalyticsEvent) {
+  private sendToPostHog(_event: AnalyticsEvent) {
     // PostHog event tracking implementation
-    console.log('PostHog event:', event)
+    // console.log('PostHog event:', event)
   }
 
-  private sendToVercel(event: AnalyticsEvent) {
+  private sendToVercel(_event: AnalyticsEvent) {
     // Vercel Analytics event tracking implementation
-    console.log('Vercel event:', event)
+    // console.log('Vercel event:', event)
   }
 
-  private sendPageView(event: PageViewEvent) {
+  private sendPageView(_event: PageViewEvent) {
     // Page view tracking implementation
-    console.log('Page view:', event)
+    // console.log('Page view:', event)
   }
 
-  private sendIdentification(userId: string, traits?: Record<string, any>) {
+  private sendIdentification(_userId: string, _traits?: Record<string, unknown>) {
     // User identification implementation
-    console.log('User identified:', userId, traits)
+    // console.log('User identified:', userId, traits)
   }
 }
 

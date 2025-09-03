@@ -44,6 +44,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, shimmer, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button'
     
+    if (asChild) {
+      return (
+        <Comp
+          className={cn(buttonVariants({ variant, size, shimmer }), className)}
+          ref={ref}
+          {...props}
+        >
+          {children}
+        </Comp>
+      )
+    }
+    
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, shimmer }), className)}
@@ -51,7 +63,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {children}
-        {shimmer && variant === 'default' && (
+        {Boolean(shimmer) && variant === 'default' && (
           <span className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 gold-shimmer transition-opacity duration-300" />
         )}
       </Comp>

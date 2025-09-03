@@ -136,9 +136,11 @@ export default function AboutPage() {
                 that will define the next generation of business intelligence.
               </p>
               <Button asChild size="lg">
-                <Link href={"/products" as any}>
-                  Explore Our Products
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/products">
+                  <>
+                    Explore Our Products
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
             </div>
@@ -281,13 +283,15 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  View Open Positions
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    View Open Positions
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/company/contact" as any}>
+                <Link href="/company/contact">
                   Contact Us
                 </Link>
               </Button>
@@ -309,13 +313,15 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={"/" as any}>
-                  Request Demo
-                  <ArrowRight className="h-4 w-4" />
+                <Link href="/">
+                  <>
+                    Request Demo
+                    <ArrowRight className="h-4 w-4" />
+                  </>
                 </Link>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link href={"/products" as any}>
+                <Link href="/products">
                   Explore Products
                 </Link>
               </Button>

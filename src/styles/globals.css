@@ -1,0 +1,133 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './tokens.css';
+
+@layer base {
+  html {
+    @apply antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-neutral-950 text-neutral-100;
+    min-height: 100vh;
+  }
+
+  /* Typography defaults */
+  h1 {
+    font-size: clamp(2.12rem, 4vw, 4.45rem);
+    line-height: 1.05;
+    @apply font-bold tracking-tight;
+  }
+
+  h2 {
+    font-size: clamp(1.62rem, 2.6vw, 2.74rem);
+    line-height: 1.1;
+    @apply font-semibold tracking-tight;
+  }
+
+  h3 {
+    font-size: clamp(1.31rem, 2vw, 2.12rem);
+    line-height: 1.2;
+    @apply font-semibold;
+  }
+
+  h4 {
+    @apply text-lg font-medium;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-electric-500;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #fcd34d;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-700 rounded-full;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-500;
+  }
+}
+
+@layer components {
+  /* Gold button component */
+  .btn-gold {
+    @apply relative inline-flex items-center gap-2 rounded-2xl px-5 py-2.5 
+           text-neutral-900 bg-gradient-to-b from-gold-300 to-gold-500 
+           shadow-aureo2 transition-all duration-[var(--dur-3)] 
+           ease-[var(--ease-standard)] hover:shadow-aureo3;
+  }
+
+  /* Glass panel component */
+  .panel-glass {
+    @apply glass p-4 md:p-6 relative overflow-hidden;
+  }
+
+  .panel-glass::before {
+    content: '';
+    @apply absolute inset-x-0 top-0 h-px 
+           bg-gradient-to-r from-transparent via-gold-300/60 to-transparent;
+  }
+
+  /* Section divider */
+  .divider-gold {
+    @apply h-[2px] w-full border-0 
+           bg-gradient-to-r from-gold-300 via-gold-500 to-transparent;
+  }
+
+  /* Container with golden ratio */
+  .container-phi {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: min(1440px, 100vw - 2rem);
+  }
+}
+
+@layer utilities {
+  /* Text gradient utility */
+  .text-gradient {
+    @apply bg-clip-text text-transparent 
+           bg-gradient-to-br from-neutral-100 to-neutral-500;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent 
+           bg-gradient-to-br from-gold-300 to-gold-500;
+  }
+
+  /* Glow effect */
+  .glow-gold {
+    filter: drop-shadow(0 0 24px rgba(252, 211, 77, 0.3));
+  }
+
+  /* Animation utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}

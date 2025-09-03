@@ -73,28 +73,79 @@ flowchart LR
 
 ### Prerequisites
 
-* Node.js **≥ 20**
-* pnpm **≥ 9** (or npm/yarn)
-* Vercel CLI (optional)
-* Sanity CLI (if using Sanity)
+* Node.js **≥ 20** (use `.nvmrc` for exact version)
+* pnpm **≥ 9** (required package manager)
+* Git **≥ 2.25**
+* Vercel CLI (optional, for deployments)
+* Sanity CLI (optional, if using Sanity CMS)
 
-### Setup
+### Quick Setup
 
 ```bash
-# 1) Clone
+# 1) Clone repository
 git clone https://github.com/aureolabs/website.git && cd website
 
-# 2) Install deps
+# 2) Use correct Node version (if using nvm)
+nvm use
+
+# 3) Install dependencies
 pnpm install
 
-# 3) Configure env
+# 4) Configure environment
 cp .env.example .env.local
-# fill in values (see below)
+# Edit .env.local with your values (see Environment Variables section)
 
-# 4) Dev server
+# 5) Initialize Git hooks (for code quality)
+pnpm prepare
+
+# 6) Start development server
 pnpm dev
-# http://localhost:3000
+# Open http://localhost:3000
 ```
+
+### Development Workflow
+
+```bash
+# Start dev server with hot reload
+pnpm dev
+
+# Run type checking
+pnpm typecheck
+
+# Run linting
+pnpm lint
+
+# Format code
+pnpm format
+
+# Run unit tests
+pnpm test
+
+# Run E2E tests
+pnpm test:e2e
+
+# Build for production
+pnpm build
+
+# Start production server locally
+pnpm start
+
+# Analyze bundle size
+pnpm analyze
+```
+
+### VS Code Setup
+
+1. Install recommended extensions:
+   ```bash
+   code --install-extension dbaeumer.vscode-eslint
+   code --install-extension esbenp.prettier-vscode
+   code --install-extension bradlc.vscode-tailwindcss
+   ```
+
+2. Workspace settings are pre-configured in `.vscode/settings.json`
+
+3. Use debug configurations in `.vscode/launch.json` for debugging
 
 ---
 
@@ -146,18 +197,32 @@ pnpm dev
 
 ```
 .
-├─ app/                    # App Router routes, layouts, metadata
-├─ components/             # UI components (shadcn/ui + custom)
+├─ .github/
+│  └─ workflows/           # CI/CD pipelines
+├─ .vscode/                # VS Code settings & debug configs
+├─ src/
+│  ├─ app/                 # App Router routes, layouts, metadata
+│  ├─ components/          # UI components (shadcn/ui + custom)
+│  ├─ lib/                 # Utilities (fetchers, analytics, auth)
+│  ├─ hooks/               # Custom React hooks
+│  ├─ utils/               # Helper functions
+│  ├─ types/               # TypeScript type definitions
+│  ├─ config/              # App configuration
+│  ├─ styles/              # Global styles & design tokens
+│  └─ test/                # Test setup & utilities
 ├─ content/                # MDX content (blog, case studies)
-├─ lib/                    # Utilities (fetchers, analytics, auth)
 ├─ public/                 # Static assets
-├─ scripts/                # Build/ops scripts
-├─ styles/                 # Tailwind, tokens, themes
-├─ tests/                  # Unit & E2E tests
-├─ sanity/                 # (if Sanity) schemas, desk, plugins
-├─ playwright.config.ts
-├─ tailwind.config.ts
-└─ next.config.mjs
+├─ tests/
+│  ├─ unit/                # Unit tests
+│  └─ e2e/                 # E2E tests
+├─ docs/                   # Project documentation
+├─ .env.example            # Environment variables template
+├─ next.config.mjs         # Next.js configuration
+├─ tailwind.config.ts      # Tailwind CSS configuration
+├─ tsconfig.json           # TypeScript configuration
+├─ vitest.config.ts        # Vitest test configuration
+├─ playwright.config.ts    # Playwright E2E configuration
+└─ package.json            # Dependencies & scripts
 ```
 
 ---

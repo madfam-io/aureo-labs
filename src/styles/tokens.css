@@ -1,0 +1,101 @@
+:root {
+  /* Math */
+  --phi: 1.61803398875;
+
+  /* Color — Gold Family */
+  --gold-900: #7c3e00;   /* deep copper */
+  --gold-700: #b45309;   /* Copper (spec) */
+  --gold-500: #f59e0b;   /* Amber (spec primary) */
+  --gold-300: #fcd34d;   /* Gold highlight */
+  --gold-200: #fde68a;   /* soft glow */
+
+  /* Neutrals (graphite→fog) */
+  --neutral-950: #0b0f14;
+  --neutral-900: #111827;
+  --neutral-800: #1f2937;
+  --neutral-700: #374151;
+  --neutral-500: #6b7280;
+  --neutral-300: #d1d5db;
+  --neutral-100: #f3f4f6;
+  --neutral-50:  #f9fafb;
+
+  /* Accent */
+  --electric-500: #3b82f6; /* CTA + links */
+
+  /* Elevation / Glass */
+  --glass-bg:  hsla(210, 20%, 8%, 0.45);   /* base backdrop */
+  --glass-stroke: rgba(255, 255, 255, 0.16);
+  --glass-highlight: rgba(255, 255, 255, 0.06);
+  --glass-blur: 14px;     /* see perf guidance */
+  --glass-radius: 1.25rem;  /* 20px */
+
+  /* Shadows (gold‑tinted) */
+  --shadow-1: 0 1px 2px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.04) inset;
+  --shadow-2: 0 8px 24px rgba(0,0,0,.35), 0 0 24px rgba(245, 158, 11, .12);
+  --shadow-3: 0 16px 40px rgba(0,0,0,.45), 0 0 48px rgba(252, 211, 77, .16);
+
+  /* Typography (Inter Variable, Fira Code) */
+  --font-sans: ui-sans-serif, InterVariable, Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: ui-monospace, "Fira Code", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Type scale (φ‑modular; base 16px rounded) */
+  --text-xs:   0.79rem;  /* 12.6px */
+  --text-sm:   0.94rem;  /* 15.0px */
+  --text-base: 1.00rem;  /* 16px */
+  --text-md:   1.31rem;  /* 21px */
+  --text-lg:   1.62rem;  /* 26px */
+  --text-xl:   2.12rem;  /* 34px */
+  --text-2xl:  2.74rem;  /* 44px */
+  --text-3xl:  4.45rem;  /* 71px (hero) */
+
+  /* Spacing scale (8px base × φ series, rounded) */
+  --space-1: 0.5rem;   /* 8 */
+  --space-2: 0.8125rem;/* 13 */
+  --space-3: 1.3125rem;/* 21 */
+  --space-4: 2.125rem; /* 34 */
+  --space-5: 3.375rem; /* 54 */
+  --space-6: 5.5rem;   /* 88 */
+
+  /* Motion (φ‑timings) */
+  --ease-standard: cubic-bezier(.2, .8, .2, 1);
+  --dur-1: 100ms;
+  --dur-2: 160ms;  /* ×φ ≈ */
+  --dur-3: 260ms;
+  --dur-4: 420ms;
+  --dur-5: 680ms;
+
+  /* Gradients */
+  --grad-gold: linear-gradient(135deg, var(--gold-300) 0%, var(--gold-500) 40%, var(--gold-700) 100%);
+  --grad-edge: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0));
+}
+
+/******** Dark theme ********/
+:root[data-theme="dark"] {
+  --glass-bg: hsla(210, 24%, 8%, 0.55);
+  --glass-stroke: rgba(255, 255, 255, 0.18);
+  --glass-highlight: rgba(255,255,255,0.08);
+}
+
+/******** High-contrast fallback ********/
+@media (prefers-contrast: more) {
+  :root { 
+    --glass-bg: rgba(17, 24, 39, 0.9); 
+    --glass-blur: 6px; 
+  }
+}
+
+/******** Reduced motion ********/
+@media (prefers-reduced-motion: reduce) { 
+  * { 
+    animation: none !important; 
+    transition: none !important; 
+  } 
+}
+
+/******** Reduced transparency ********/
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-bg: rgba(17, 24, 39, 0.85);
+    --glass-blur: 6px;
+  }
+}

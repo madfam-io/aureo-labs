@@ -1,0 +1,31 @@
+# =============================================================================
+# AUREO-LABS - Development Dockerfile
+# =============================================================================
+# Hot-reload enabled development container
+# =============================================================================
+
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install dependencies needed for native modules
+RUN apk add --no-cache libc6-compat
+
+# Enable pnpm
+RUN corepack enable pnpm
+
+# Copy package files first for better caching
+COPY package.json pnpm-lock.yaml* ./
+
+# Install all dependencies (including devDependencies)
+RUN pnpm install
+
+# Copy the rest of the application
+COPY . .
+
+ENV NODE_ENV=development
+ENV NEXT_TELEMETRY_DISABLED=1
+
+EXPOSE 3000
+
+CMD ["pnpm", "dev"]

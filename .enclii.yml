@@ -1,0 +1,75 @@
+# Aureo Labs - Enclii Deployment Configuration
+# Business website for Aureo Labs (a MADFAM Company)
+
+apiVersion: enclii.dev/v1
+kind: Service
+metadata:
+  name: aureo-labs
+  project: madfam-platform
+  description: Aureo Labs enterprise website with Golden Ratio design system
+
+spec:
+  build:
+    type: dockerfile
+    dockerfile: Dockerfile
+    context: .
+    source:
+      git:
+        repository: https://github.com/madfam-io/aureo-labs
+        branch: main
+        autoDeploy: true
+
+  runtime:
+    port: 3000
+    replicas: 2
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "256Mi"
+      limits:
+        cpu: "500m"
+        memory: "512Mi"
+
+    healthCheck: /api/health
+    readinessProbe:
+      path: /api/health
+      initialDelaySeconds: 10
+      periodSeconds: 5
+    livenessProbe:
+      path: /api/health
+      initialDelaySeconds: 20
+      periodSeconds: 10
+
+  env:
+    - name: NODE_ENV
+      value: production
+    - name: NEXT_TELEMETRY_DISABLED
+      value: "1"
+    - name: DATABASE_URL
+      valueFrom:
+        secretKeyRef:
+          name: aureo-labs-secrets
+          key: database-url
+    - name: POSTHOG_KEY
+      valueFrom:
+        secretKeyRef:
+          name: aureo-labs-secrets
+          key: posthog-key
+
+  routes:
+    - host: aureolabs.dev
+      path: /
+      tls: true
+    - host: www.aureolabs.dev
+      path: /
+      tls: true
+      redirect: aureolabs.dev
+
+  autoscaling:
+    minReplicas: 2
+    maxReplicas: 6
+    targetCPUUtilizationPercentage: 70
+
+  caching:
+    enabled: true
+    ttl: 3600  # 1 hour for static assets
